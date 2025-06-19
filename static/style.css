@@ -217,12 +217,17 @@ body.appointments-page {
   min-height: 100vh;
   padding-top: 200px;
 }
+<<<<<<< HEAD
 
 /* Booking Page Glass Box */
+=======
+/* Booking Page Form Glass Box */
+>>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 .booking-form-glass {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   backdrop-filter: blur(15px);
+<<<<<<< HEAD
   padding: 30px 25px;
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
   max-width: 400px; /* reduced from 500px to 400px */
@@ -234,6 +239,19 @@ body.appointments-page {
 
 
 .booking-form-glass input {
+=======
+  -webkit-backdrop-filter: blur(15px);
+  padding: 40px 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  max-width: 600px;
+  margin: 180px auto 60px auto;
+  text-align: center;
+}
+
+/* Form Inputs */
+.booking-form-glass input,
+.booking-form-glass select {
+>>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
   width: 90%;
   padding: 15px;
   margin: 12px 0;
@@ -243,6 +261,7 @@ body.appointments-page {
   font-size: 16px;
   outline: none;
   color: #333;
+<<<<<<< HEAD
   transition: box-shadow 0.3s ease;
 }
 
@@ -264,12 +283,18 @@ body.appointments-page {
 .booking-form-glass input:focus, 
 .booking-form-glass select:focus {
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+=======
+>>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 }
 
 .booking-form-glass input::placeholder {
   color: #555;
 }
 
+<<<<<<< HEAD
+=======
+/* Submit Button */
+>>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 .submit-btn {
   background: linear-gradient(135deg, #df68d1, #4141e4);
   border: none;
@@ -281,11 +306,16 @@ body.appointments-page {
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
+<<<<<<< HEAD
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+=======
+  transition: transform 0.2s ease;
+>>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 }
 
 .submit-btn:hover {
   transform: scale(1.05);
+<<<<<<< HEAD
   box-shadow: 0 5px 15px rgba(223, 104, 209, 0.5);
 }
 
@@ -310,4 +340,25 @@ body.appointments-page {
 input[readonly] {
   background: rgba(255, 255, 255, 0.5);
   cursor: default;
+=======
+}
+
+/* Confirmation Message */
+.confirmation-message {
+  margin-top: 20px;
+  font-size: 18px;
+  color: green;
+  font-weight: bold;
+}
+
+/* Back Button */
+.back-btn {
+  padding: 10px 20px;
+  background: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+>>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 }

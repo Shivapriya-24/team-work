@@ -23,5 +23,11 @@ def booking():
     return render_template('booking.html', department=department, doctor=doctor)
     # ✅ Correct: passes them to booking.html
 
+@app.route('/booking')
+def booking():
+    department = request.args.get('department')
+    doctor = request.args.get('doctor')
+    return render_template('booking.html', department=department, doctor=doctor)
+
 if __name__ == '__main__':
     app.run(debug=True)
