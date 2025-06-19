@@ -1,3 +1,5 @@
+// script.js
+
 // Toggle password visibility for login page
 function togglePassword() {
   const passwordInput = document.getElementById('password');
@@ -66,8 +68,21 @@ function filterDoctors(department) {
         <p><strong>${doc.spec}</strong></p>
         <p>${doc.bio}</p>
       </div>
-      <a href="booking.html" class="book-btn">Book Now</a>
+      <a href="/booking?department=${encodeURIComponent(department)}&doctor=${encodeURIComponent(doc.name)}" class="book-btn">Book Now</a>
     `;
     container.appendChild(card);
   });
 }
+
+document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Show the popup
+  const popup = document.getElementById('success-popup');
+  popup.style.display = 'block';
+  // Optional: clear form
+  this.reset();
+  // Wait 5 sec, then redirect
+  setTimeout(() => {
+    window.location.href = "/appointment";
+  }, 5000);
+});

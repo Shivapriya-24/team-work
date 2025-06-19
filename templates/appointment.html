@@ -6,13 +6,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="appointments-page">
   <!-- HEADER -->
   <header class="header">
     <div class="header-top">
       <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
       <a href="{{ url_for('login') }}" class="logout-btn">Logout</a>
     </div>
+    <!-- FILTER TABS -->
     <div class="filter-tabs">
       <button onclick="filterDoctors('Cardiology')">Cardiology</button>
       <button onclick="filterDoctors('Neurology')">Neurology</button>
@@ -23,11 +24,14 @@
     </div>
   </header>
 
-  <!-- CONTENT -->
+  <!-- WELCOME MESSAGE -->
+  <div id="welcome-message" class="welcome-message">
+    <p>Welcome! Please select a department to see available doctors.</p>
+  </div>
+
+  <!-- DOCTOR CARDS -->
   <div id="doctor-cards" class="cards-container">
-    <div id="welcome-message" class="welcome-message">
-      <h2>Welcome! Please select a department to view available doctors.</h2>
-    </div>
+    <!-- Cards will be injected here by JS -->
   </div>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>

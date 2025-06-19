@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Appointment - Doctor Patient Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-top">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+      <a href="{{ url_for('appointment') }}" class="back-btn">Back</a>
+    </div>
+  </header>
+
+  <!-- Booking Form -->
+  <div class="booking-form-glass">
+    <h2>Book an Appointment</h2>
+    <form id="appointmentForm">
+      <input type="text" name="fullname" placeholder="Full Name" required>
+      <input type="number" name="age" placeholder="Age" required min="0">
+      <select name="gender" class="custom-select" required>
+        <option value="" disabled selected>Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="text" id="departmentInput" name="department" readonly>
+      <input type="text" id="doctorInput" name="doctor" readonly>
+      <input type="datetime-local" name="datetime" required>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <!-- Success Pop-Up -->
+  <div id="success-popup" class="success-popup">Your appointment was booked successfully!</div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const dept = urlParams.get('department');
+    const doctorName = urlParams.get('doctor');
+
+    const deptInput = document.getElementById('departmentInput');
+    const doctorInput = document.getElementById('doctorInput');
+
+    deptInput.value = dept || '';
+    doctorInput.value = doctorName || '';
+
+    const dateTime = document.querySelector('input[type="datetime-local"]');
+    dateTime.addEventListener('click', () => dateTime.showPicker && dateTime.showPicker());
+
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const popup = document.getElementById('success-popup');
+      popup.style.display = "block";
+      this.reset();
+      setTimeout(() => {
+        window.location.href = "/appointment";
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
