@@ -17,5 +17,11 @@ def login():
 def appointment():
     return render_template('appointment.html')  # Load the real appointment page
 
+@app.route('/booking')
+def booking():
+    department = request.args.get('department')
+    doctor = request.args.get('doctor')
+    return render_template('booking.html', department=department, doctor=doctor)
+
 if __name__ == '__main__':
     app.run(debug=True)
