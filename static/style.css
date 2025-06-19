@@ -232,3 +232,71 @@ body.appointments-page {
   display: block;
   padding-top: 200px;
 }
+/* Booking Page Form Glass Box */
+.booking-form-glass {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 40px 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  max-width: 600px;
+  margin: 180px auto 60px auto;
+  text-align: center;
+}
+
+/* Form Inputs */
+.booking-form-glass input,
+.booking-form-glass select {
+  width: 90%;
+  padding: 15px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  outline: none;
+  color: #333;
+}
+
+.booking-form-glass input::placeholder {
+  color: #555;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: linear-gradient(135deg, #df68d1, #4141e4);
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Confirmation Message */
+.confirmation-message {
+  margin-top: 20px;
+  font-size: 18px;
+  color: green;
+  font-weight: bold;
+}
+
+/* Back Button */
+.back-btn {
+  padding: 10px 20px;
+  background: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
