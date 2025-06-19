@@ -21,17 +21,12 @@
     <form id="appointmentForm">
       <input type="text" name="fullname" placeholder="Full Name" required>
       <input type="number" name="age" placeholder="Age" required min="0">
-<<<<<<< HEAD
-      <select name="gender" class="custom-select" required>
-=======
       <select name="gender" required>
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
         <option value="" disabled selected>Gender</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Other">Other</option>
       </select>
-<<<<<<< HEAD
       <input type="text" id="departmentInput" name="department" readonly>
       <input type="text" id="doctorInput" name="doctor" readonly>
       <input type="datetime-local" name="datetime" required>
@@ -44,37 +39,23 @@
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
   <script>
-=======
-      <select name="department" id="departmentSelect" required disabled>
-        <option value="" disabled selected>Department</option>
-      </select>
-      <select name="doctor" id="doctorSelect" required>
-        <option value="" disabled selected>Select Doctor</option>
-      </select>
-      <input type="datetime-local" name="datetime" required>
-      <button type="submit" class="submit-btn">Submit</button>
-    </form>
-    <p id="confirmation-message" class="confirmation-message"></p>
-  </div>
-
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-  <script>
-    // Pre-fill department & doctor from query params and populate doctor list
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
+    // Get query params
     const urlParams = new URLSearchParams(window.location.search);
     const dept = urlParams.get('department');
     const doctorName = urlParams.get('doctor');
 
-<<<<<<< HEAD
+    // Fill readonly fields
     const deptInput = document.getElementById('departmentInput');
     const doctorInput = document.getElementById('doctorInput');
 
     deptInput.value = dept || '';
     doctorInput.value = doctorName || '';
 
+    // Optional: show date picker on click
     const dateTime = document.querySelector('input[type="datetime-local"]');
     dateTime.addEventListener('click', () => dateTime.showPicker && dateTime.showPicker());
 
+    // Handle form submit
     document.getElementById('appointmentForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const popup = document.getElementById('success-popup');
@@ -82,35 +63,7 @@
       this.reset();
       setTimeout(() => {
         window.location.href = "/appointment";
-      }, 5000);
-=======
-    // Set department (disabled dropdown)
-    const deptSelect = document.getElementById('departmentSelect');
-    const doctorSelect = document.getElementById('doctorSelect');
-
-    if (dept && doctors[dept]) {
-      const opt = document.createElement('option');
-      opt.value = dept;
-      opt.textContent = dept;
-      opt.selected = true;
-      deptSelect.appendChild(opt);
-
-      // Populate doctor dropdown
-      doctors[dept].forEach(doc => {
-        const option = document.createElement('option');
-        option.value = doc.name;
-        option.textContent = doc.name;
-        if (doc.name === doctorName) option.selected = true;
-        doctorSelect.appendChild(option);
-      });
-    }
-
-    // Handle form submit
-    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('confirmation-message').textContent = "Your appointment was booked successfully!";
-      this.reset();
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
+      }, 3000);
     });
   </script>
 </body>

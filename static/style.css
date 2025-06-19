@@ -64,6 +64,240 @@ body {
   cursor: pointer;
   transition: transform 0.2s;
 }
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background: url("/static/bg.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+/* Glass dialogue box for login */
+.login-glass {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  max-width: 500px;
+  width: 100%;
+  margin: 100px auto;
+}
+
+/* Logo inside glass box */
+.login-glass img {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+/* Input fields */
+.login-glass input {
+  width: 90%;
+  padding: 15px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.5);
+  color: #333;
+  font-size: 16px;
+  outline: none;
+}
+
+.login-glass input::placeholder {
+  color: #555;
+}
+
+/* Password icon container */
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #333;
+}
+
+/* Submit button */
+.login-glass button {
+  background: linear-gradient(135deg, #df68d1, #4141e4);
+  margin: 12px 0;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.login-glass button:hover {
+  transform: scale(1.05);
+}
+
+.login-glass p {
+  color: #ff6b81;
+  margin-top: 10px;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 50px;
+  z-index: 1000;
+}
+
+.header-top {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin-top: 10px;
+  margin-left:-300px;
+  width: 350px;
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  margin-right: -300px;
+  background: #ff6b81;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Filter Tabs inside header */
+.filter-tabs {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.filter-tabs button {
+  padding: 10px 30px;   /* Increased padding for bigger size */
+  font-size: 18px;      /* Increased font size */
+  border: none;
+  background: linear-gradient(135deg, #ff0080, #7928ca);
+  color: white;
+  border-radius: 25px;  /* Slightly larger border radius for bigger button */
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-tabs button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* Doctor Cards */
+.cards-container {
+  margin-top: 200px; /* extra space for fixed header */
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.doctor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.doctor-info {
+  max-width: 70%;
+}
+
+.book-btn {
+  position: relative; /* needed for pseudo-element */
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00c6ff, #d315ec);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  overflow: hidden; /* hide shine overflow */
+}
+
+.book-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: skewX(-25deg);
+}
+
+.book-btn:hover::before {
+  animation: shine 0.75s forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.book-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Welcome message styling */
+.welcome-message {
+  text-align: center;
+  padding: 150px 20px;
+  font-size: 1.8rem;
+  color: #060606;
+}
+
+/* Make body scrollable for appointments page with fixed header */
+body.appointments-page {
+  min-height: 100vh;
+  display: block;
+  padding-top: 200px;
+}
 
 .login-glass button:hover {
   transform: scale(1.05);
@@ -217,29 +451,13 @@ body.appointments-page {
   min-height: 100vh;
   padding-top: 200px;
 }
-<<<<<<< HEAD
 
 /* Booking Page Glass Box */
-=======
 /* Booking Page Form Glass Box */
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 .booking-form-glass {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   backdrop-filter: blur(15px);
-<<<<<<< HEAD
-  padding: 30px 25px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-  max-width: 400px; /* reduced from 500px to 400px */
-  margin: 180px auto 60px auto;
-  text-align: center;
-  margin-top: 225px;
-}
-
-
-
-.booking-form-glass input {
-=======
   -webkit-backdrop-filter: blur(15px);
   padding: 40px 30px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -251,7 +469,6 @@ body.appointments-page {
 /* Form Inputs */
 .booking-form-glass input,
 .booking-form-glass select {
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
   width: 90%;
   padding: 15px;
   margin: 12px 0;
@@ -261,7 +478,6 @@ body.appointments-page {
   font-size: 16px;
   outline: none;
   color: #333;
-<<<<<<< HEAD
   transition: box-shadow 0.3s ease;
 }
 
@@ -283,18 +499,13 @@ body.appointments-page {
 .booking-form-glass input:focus, 
 .booking-form-glass select:focus {
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-=======
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 }
 
 .booking-form-glass input::placeholder {
   color: #555;
 }
 
-<<<<<<< HEAD
-=======
 /* Submit Button */
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 .submit-btn {
   background: linear-gradient(135deg, #df68d1, #4141e4);
   border: none;
@@ -306,16 +517,12 @@ body.appointments-page {
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
-<<<<<<< HEAD
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-=======
   transition: transform 0.2s ease;
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 }
 
 .submit-btn:hover {
   transform: scale(1.05);
-<<<<<<< HEAD
   box-shadow: 0 5px 15px rgba(223, 104, 209, 0.5);
 }
 
@@ -340,7 +547,6 @@ body.appointments-page {
 input[readonly] {
   background: rgba(255, 255, 255, 0.5);
   cursor: default;
-=======
 }
 
 /* Confirmation Message */
@@ -354,11 +560,10 @@ input[readonly] {
 /* Back Button */
 .back-btn {
   padding: 10px 20px;
-  background: #6c757d;
+  background: #ff6b81;
   color: #fff;
   border: none;
   border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
->>>>>>> 36d51c6a528749adf9efd8f338429cb4e0b90428
 }
