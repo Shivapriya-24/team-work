@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Appointments - Doctor Patient Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="appointments-page">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+      <a href="{{ url_for('login') }}" class="logout-btn">Logout</a>
+    </div>
+    <!-- FILTER TABS -->
+    <div class="filter-tabs">
+      <button onclick="filterDoctors('Cardiology')">Cardiology</button>
+      <button onclick="filterDoctors('Neurology')">Neurology</button>
+      <button onclick="filterDoctors('Orthopedics')">Orthopedics</button>
+      <button onclick="filterDoctors('Pediatrics')">Pediatrics</button>
+      <button onclick="filterDoctors('Dermatology')">Dermatology</button>
+      <button onclick="filterDoctors('General Medicine')">General Medicine</button>
+    </div>
+  </header>
+
+  <!-- WELCOME MESSAGE -->
+  <div id="welcome-message" class="welcome-message">
+    <p>Welcome! Please select a department to see available doctors.</p>
+  </div>
+
+  <!-- DOCTOR CARDS -->
+  <div id="doctor-cards" class="cards-container">
+    <!-- Cards will be injected here by JS -->
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
